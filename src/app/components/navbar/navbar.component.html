@@ -1,0 +1,23 @@
+<div class="sticky-top bg-white">
+  <div
+    class="d-flex flex-column flex-md-row align-items-center mb-4 border-bottom"
+  >
+    <app-nav-header />
+
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+      <a
+        *ngFor="let route of routes"
+        class="me-3 py-2 link-body-emphasis text-decoration-none"
+        [routerLink]="[route.path]"
+        routerLinkActive="border-bottom border-primary border-3"
+        >{{ route.name }}</a
+      >
+      <button
+        class="d-md-none d-lg-none d-xl-none navbar-toggler bg-warning rounded mb-2 px-2"
+        (click)="gotoCart()"
+      >
+        Go to cart
+      </button>
+    </nav>
+  </div>
+</div>

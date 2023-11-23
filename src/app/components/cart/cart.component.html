@@ -1,0 +1,98 @@
+<div class="w-100 h-100">
+  <div class="position-sticky" style="top: 90px">
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-primary">Your cart</span>
+      <span class="badge bg-primary rounded-pill">{{ cart().totalItem }}</span>
+    </h4>
+
+    <ul class="list-group mb-3">
+      <ng-container *ngIf="getCartTotalPrice()">
+        <li
+          *ngIf="cart().tickets.totalPrice"
+          class="list-group-item d-flex justify-content-between lh-sm"
+        >
+          <div>
+            <h6 class="my-0">{{ ticketTitle }}</h6>
+            <app-cart-item-list
+              [items]="cart().tickets.items"
+              [currency]="currency()"
+            />
+          </div>
+          <span class="text-body-secondary"
+            >${{ cart().tickets.totalPrice }}</span
+          >
+        </li>
+        <li
+          *ngIf="cart().food.totalPrice"
+          class="list-group-item d-flex justify-content-between lh-sm"
+        >
+          <div>
+            <h6 class="my-0">{{ foodTitle }}</h6>
+            <app-cart-item-list
+              [items]="cart().food.items"
+              [currency]="currency()"
+            />
+          </div>
+          <span class="text-body-secondary">${{ cart().food.totalPrice }}</span>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between bg-body-tertiary"
+        >
+          <span>Total:</span>
+          <strong>{{ getCartTotalPrice() | currency : currency() }}</strong>
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between">
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-secondary btn-sm dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Currency: {{ currency() }}
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <span class="dropdown-item" (click)="setCurrency('USD')">
+                  USD
+                </span>
+              </li>
+              <li>
+                <span class="dropdown-item" (click)="setCurrency('CAD')">
+                  CAD
+                </span>
+              </li>
+              <li>
+                <span class="dropdown-item" (click)="setCurrency('MXN')">
+                  MXN
+                </span>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="!getCartTotalPrice()">
+        <li class="list-group-item d-flex justify-content-between">
+          <small class="text-body-secondary">{{ noItemMessage }} :/</small>
+        </li>
+      </ng-container>
+    </ul>
+
+    <div *ngIf="getCartTotalPrice()">
+      <app-button
+        class="w-100 btn-sm btn-outline-danger"
+        buttonText="Buy"
+        (click)="purchaseItems()"
+      >
+        <span
+          *ngIf="purchaseLoader"
+          class="spinner-border spinner-border-sm"
+          role="status"
+          aria-hidden="true"
+        ></span>
+      </app-button>
+    </div>
+  </div>
+</div>
+<app-toast [show]="showToast()" [totalPrice]="getCartTotalPrice()" />

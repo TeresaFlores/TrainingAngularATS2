@@ -1,0 +1,9 @@
+<ul style="list-style: none">
+  <li *ngFor="let item of items">
+    <small class="text-body-secondary">{{ item.itemName }}</small>
+    <small class="text-body-secondary ms-1">x {{ item.qty }}</small>
+    <small class="text-body-secondary"
+      >....({{ currency }})${{ item.price }}</small
+    >
+  </li>
+</ul>

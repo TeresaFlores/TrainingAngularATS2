@@ -1,0 +1,51 @@
+<ul class="list-group list-group-flush">
+  <li
+    *ngFor="let movie of movies"
+    class="list-group-item d-md-flex align-items-center"
+  >
+    <div class="w-100 d-md-none d-lg-none mb-2">
+      <img
+        [src]="[movie.imgUrl]"
+        class="img-thumbnail .img-fluid"
+        alt="movie poster"
+      />
+    </div>
+    <div class="w-25 d-none d-md-block">
+      <img
+        [src]="[movie.imgUrl]"
+        class="img-thumbnail .img-fluid"
+        alt="movie poster"
+      />
+    </div>
+    <div class="ms-4">
+      <label>Function time:</label>
+      <div class="d-flex mb-2 schedule_container">
+        <app-button
+          *ngFor="let time of movie.timeSchedule; index as i"
+          buttonType="secondary"
+          buttonText="{{ time }}"
+          [ngClass]="{ 'ms-2': i !== 0 }"
+          class="btn-sm"
+        />
+      </div>
+
+      <div class="mb-2">
+        <label class="form-label" for="tickets">Ticket quantity:</label>
+        <input
+          [(ngModel)]="ticketInputs[movie.id]"
+          min="1"
+          max="20"
+          type="number"
+          [id]="'ticket_input' + movie.id"
+          class="form-control form-control-sm"
+        />
+      </div>
+      <app-button
+        buttonType="primary"
+        buttonText="Add to cart"
+        class="btn-sm btn-block w-100"
+        (click)="addTicketToCart(movie.id)"
+      />
+    </div>
+  </li>
+</ul>

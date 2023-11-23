@@ -1,0 +1,30 @@
+<!-- images source downloaded in: https://www.postermywall.com/index.php/posters/search?s=movie&tt=image# -->
+<!-- Authors:
+https://www.postermywall.com/index.php/d/masima-studio
+https://www.postermywall.com/index.php/d/d%C3%A9-l%C3%A1n
+-->
+
+<div class="row row-cols-1 row-cols-md-3 mb-3">
+  <div class="col" *ngFor="let movie of movies">
+    <a [routerLink]="['/tickets']">
+      <app-card class="p-0">
+        <div>
+          <span class="card-img-overlay card-text text-light movie_desc">
+            {{ movie.description }}
+            <p>Funtion time:</p>
+            <ul class="">
+              <li class="text-light" *ngFor="let time of movie.timeSchedule">
+                {{ time }}
+              </li>
+            </ul>
+          </span>
+          <img
+            [src]="movie.imgUrl"
+            class="img-fluid movie_img"
+            alt="movie poster"
+          />
+        </div>
+      </app-card>
+    </a>
+  </div>
+</div>

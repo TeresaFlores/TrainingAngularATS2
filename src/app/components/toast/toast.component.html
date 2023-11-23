@@ -1,0 +1,30 @@
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div
+    id="successToast"
+    class="toast bg-success"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    [ngClass]="{ show: show }"
+  >
+    <div class="toast-header">
+      <img
+        src="../assets/icons/movie-1.1s-200px.svg"
+        class="rounded me-2"
+        alt="cine angular logo"
+        style="width: 32px; height: 32px"
+      />
+      <strong class="me-auto">Cine Angular</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="toast-body text-white">
+      Thanks for your purchase Total:
+      <strong>{{ totalPrice | currency }}.</strong>
+    </div>
+  </div>
+</div>
