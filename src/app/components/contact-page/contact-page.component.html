@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-md 4"></div>
+  <div class="col-md 4">
+    <img
+      src="https://images.pexels.com/photos/1379636/pexels-photo-1379636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      alt=""
+      class="img img-thumbnail"
+    />
+    <hr />
+    <h3>Contact Form</h3>
+    <p>Carlos De La Cruz</p>
+  </div>
+  <div class="col-md 4"></div>
+</div>
+<div class="row">
+  <div class="col-md 4"></div>
+  <div class="col-md 4">
+    <form>
+      <div class="mb-3">
+        <label for="nameInput" class="form-label">Name</label>
+        <input
+          type="email"
+          class="form-control"
+          id="nameInput"
+          aria-describedby="emailHelp"
+          [(ngModel)]="name"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="lastnameInput" class="form-label">Lastname</label>
+        <input
+          type="email"
+          class="form-control"
+          id="lastnameInput"
+          aria-describedby="emailHelp"
+          [(ngModel)]="lastname"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="emailSubjectInput" class="form-label">Email Subject</label>
+        <input
+          type="email"
+          class="form-control"
+          id="emailSubjectInput"
+          aria-describedby="emailHelp"
+          [(ngModel)]="emailSubject"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="messageInput" class="form-label">Message</label>
+        <input
+          type="email"
+          class="form-control"
+          id="messageInput"
+          aria-describedby="emailHelp"
+          [(ngModel)]="message"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </div>
+      <button type="button" class="btn btn-primary" (click)="getFormInfo()">
+        Enviar
+      </button>
+    </form>
+  </div>
+  <div class="col-md 4"></div>
+</div>

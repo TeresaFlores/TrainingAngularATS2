@@ -1,0 +1,27 @@
+<div class="container" *ngIf="!movies">
+  <p>Loading...</p>
+</div>
+
+<div class="row" *ngIf="movies">
+  <div class="col-lg-3 col-md-4 col-xs-12" *ngFor="let movie of movies">
+    <div class="alert alert-dark" [routerLink]="['/movie', movie.id]">
+      <div class="card-body" style="cursor: pointer">
+        <p class="car-title">
+          Titulo:
+          {{
+            movie.title.length > 20
+              ? (movie.title | slice : 0 : 20)
+              : movie.title
+          }}
+        </p>
+        <p>Fecha de estreno: {{ movie.release_date | date }}</p>
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+          [alt]="movie.title"
+          class="img img-thumbnail"
+          style="width: 500px; height: 300px"
+        />
+      </div>
+    </div>
+  </div>
+</div>
