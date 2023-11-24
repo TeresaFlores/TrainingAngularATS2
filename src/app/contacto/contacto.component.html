@@ -1,0 +1,17 @@
+<form [formGroup]="formContacto" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="nombreId">Nombre</label>
+        <input type="text" class="form-control" id="nombreId" placeholder="Nombre" formControlName="nombre">
+    </div>
+    <div class="form-group">
+        <label for="correoElectronicoId">Correo electronico</label>
+        <input type="email" class="form-control" id="correoElectronicoId" placeholder="ejemplo@ejemplo.com"
+            formControlName="correo">
+    </div>
+    <div class="form-group">
+        <label for="asuntoId">Asunto</label>
+        <textarea class="form-control" id="asuntoId" placeholder="Que desea comunicarnos" rows="3"
+            formControlName="asunto"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

@@ -1,0 +1,51 @@
+<form>
+    <label for="peliculaSeleccionada">Pelicula</label>
+    <select class="form-control" name="peliculaSeleccionada" id="peliculaSeleccionada"
+        (change)="peliculaSeleccion($event.target)">
+        <option value="0" disabled selected>
+            Seleccionar pelicula
+        </option>
+        <option *ngFor="let pelicula of peliculas" value="{{pelicula.id}}">
+            {{pelicula.nombre}}
+        </option>
+    </select>
+    <h3>
+        Pelicula selecionada: {{peliculaSeleccionada.nombre}}
+    </h3>
+    <label for="horarioSeleccionado">Horario</label>
+    <select class="form-control" name="horarioSeleccionado" id="horarioSeleccionado"
+        (change)="horarioSeleccion($event.target)">
+        <option value="" disabled selected>
+            Seleccionar horario
+        </option>
+        <option *ngFor="let horario of horarios" value="{{horario}}">
+            {{horario}}
+        </option>
+    </select>
+    <h3>
+        Horario selecionado: {{horarioseleccionado}}
+    </h3>
+    <label for="numeroBoletos">Boletos</label>
+    <select class="form-control" name="numeroBoletos" id="numeroBoletos" (change)="boletosSeleccion($event.target)">
+        <option value="0" disabled selected>
+            Seleccionar boletos
+        </option>
+        <option *ngFor="let boleto of [1,2,3,4]" value="{{boleto}}">
+            {{boleto}}
+        </option>
+    </select>
+    <h3>
+        Numero boletos: {{numeroBoletos}}
+    </h3>
+    <h6>
+        * Costo por boleto = $75.00 MN
+    </h6>
+    <div class="row d-flex align-content-center">
+        <button type="submit" class="btn btn-primary" [disabled]="botonAbilitado()" (click)="pagar()">
+            Pagar
+        </button>
+    </div>
+    <div class="text-end">
+        <h4>Total a pagar: {{totalAPagar}}</h4>
+    </div>
+</form>

@@ -1,0 +1,50 @@
+<table class="table table-sm table-bordered table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">
+                id
+            </th>
+            <th scope="col">
+                nombre
+            </th>
+            <th scope="col">
+                imagen
+            </th>
+            <th scope="col">
+                clasificacion
+            </th>
+            <th scope="col" colspan="2" style="text-align:center">
+                horario
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pelicula of peliculas">
+            <th scope="row">
+                {{pelicula.id}}
+            </th>
+            <td>
+                {{pelicula.nombre}}
+            </td>
+            <td>
+                <img [src]="pelicula.imagen">
+            </td>
+            <td>
+                {{pelicula.clasificacion}}
+            </td>
+            <td>
+                {{pelicula.horario}}
+            </td>
+            <td>
+                <button type="submit" class="btn btn-primary" (click)="comprar(pelicula.id)">comprar</button>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr class="table-info">
+            <td colspan="6" style="text-align:center">
+                * para consultar precios favor de ir al apartado de boletos
+            </td>
+        </tr>
+    </tfoot>
+</table>
